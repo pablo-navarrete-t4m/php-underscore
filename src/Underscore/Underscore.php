@@ -2181,9 +2181,10 @@ class Underscore
      */
     public static function isString($object, $native = false)
     {
+        
         return $native
             ? is_string($object)
-            : is_string($object) || $object instanceof \SplString || method_exists($object, '__toString');
+            : is_string($object) || $object instanceof \SplString || is_object($object) && method_exists($object, '__toString');
     }
 
     /**
